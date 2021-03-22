@@ -1,17 +1,9 @@
-import { BrowserRouter, Switch, Route} from 'react-router-dom';
 import './App.css';
 
 import { createContext, useMemo, useState } from "react"
 
 import Header from "./components/header/Header"
 import Home from "./components/home/Home";
-import New from "./components/New"
-import Men from "./components/Men"
-import Women from "./components/Women"
-import Kids from "./components/Kids"
-import Customize from "./components/Customize"
-import Account from "./components/Account"
-import Bag from './components/Bag';
 import FakeAPI, { Model } from './FakeApi';
 import { Direction } from './components/home/Shoes';
 
@@ -63,20 +55,8 @@ function App() {
 
     return (
         <GlobalContext.Provider value={globalContext}>
-            <BrowserRouter>
-                <Header cartSize={nbInBag} />
-                <Switch>
-                    <Route path={"/"} exact component={Home} />
-                    <Route path={"/new"} exact component={New} />
-                    <Route path={"/men"} exact component={Men} />
-                    <Route path={"/women"} exact component={Women} />
-                    <Route path={"/kids"} exact component={Kids} />
-                    <Route path={"/customize"} exact component={Customize} />
-                    <Route path={"/account"} exact component={Account} />
-                    <Route path={"/bag"} exact component={Bag} />
-                    <Route path={"*"} component={() => <div>error</div>} /> {/*404 component*/}
-                </Switch>
-            </BrowserRouter>
+            <Header cartSize={nbInBag} />
+            <Home />
         </GlobalContext.Provider>
     );
 }

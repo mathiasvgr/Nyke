@@ -1,5 +1,4 @@
 import { FunctionComponent, useState} from 'react';
-import { useLocation } from 'react-router-dom';
 
 import Notification from '../notification/Notification'
 import RedirectionText from './redirection/RedirectionText';
@@ -13,7 +12,6 @@ type HeaderProps = {
 
 const Header: FunctionComponent<HeaderProps> = ({ cartSize }) => {
 
-    const location = useLocation();
     const [isNotificationVisible, setNotificationVisibility] = useState(false);
 
     const linkNames = [
@@ -51,17 +49,16 @@ const Header: FunctionComponent<HeaderProps> = ({ cartSize }) => {
             </div>
             <div className={styles.header_content}>
                 {linkNames.map((linkName) =>
-                    <RedirectionText key={linkName.name} text={linkName.name} url={linkName.url} active={location.pathname} />
+                    <RedirectionText key={linkName.name} text={linkName.name} url={linkName.url} />
                 )}
             </div>
             <div className={styles.header_action}>
-                <RedirectionIcon url="account" name="account-bag" width="30px" height="30px" active={location.pathname} />
+                <RedirectionIcon url="account" name="account-bag" width="30px" height="30px" />
                 <Notification iconColor={{backGround: "red", textColor: "white"}} nb={cartSize} isVisible={isNotificationVisible}>
                     <RedirectionIcon url="bag"
                         name="shopping-bag"
                         width="30px"
                         height="30px"
-                        active={location.pathname}
                         callback={removeShoppingNotification}
                     />
                 </Notification>

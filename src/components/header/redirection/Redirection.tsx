@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 
 import styles from '../Header.module.css';
 
@@ -49,9 +48,9 @@ abstract class Redirection<P extends RedirectionProps> extends React.Component<P
 
     render() {
         return (
-            <Link className={styles.link} to={this.props.url}>
+            <div className={styles.link} >
                 <this.renderElement />
-            </Link>
+            </div>
         );
     };
 };
