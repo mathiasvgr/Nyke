@@ -3,7 +3,6 @@ import './App.css';
 
 import { createContext, useMemo, useState } from "react"
 
-import Header from "./components/header/Header"
 import Home from "./components/home/Home";
 import New from "./components/New"
 import Men from "./components/Men"
@@ -64,7 +63,7 @@ function App() {
     return (
         <GlobalContext.Provider value={globalContext}>
             <BrowserRouter>
-                <Header cartSize={nbInBag} />
+                {/* <Header cartSize={nbInBag} /> */}
                 <Switch>
                     <Route path={"/"} exact component={Home} />
                     <Route path={"/new"} exact component={New} />
